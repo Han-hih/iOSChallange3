@@ -14,8 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var imageView4: UIImageView!
     @IBOutlet weak var imageView5: UIImageView!
+    @IBOutlet weak var load1: UIButton!
+    @IBOutlet weak var load2: UIButton!
+    @IBOutlet weak var load3: UIButton!
+    @IBOutlet weak var load4: UIButton!
+    @IBOutlet weak var load5: UIButton!
+    @IBOutlet weak var loadAllImages: UIButton!
     
-    let imageurls = ["https://img1.daumcdn.net/thumb/C300x430/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fdae69d91dee05da54a630cb63c10109366ccac90","https://img.hankyung.com/photo/202205/AA.30080001.1.jpg","https://www.kukinews.com/data/kuk/image/2022/06/10/kuk202206100269.680x.0.jpg","https://newsimg.hankookilbo.com/cms/articlerelease/2021/06/07/86fa68b8-4fdf-43f9-8f44-966b1bde0a97.jpg","https://file2.nocutnews.co.kr/newsroom/image/2022/08/27/202208271436351479_0.jpg"]
+    
+    let imageurls = ["https://images.unsplash.com/photo-1677727990864-2e519807eeb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1677725284091-505971561e6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1677461404789-1faafbd934e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1677690092396-e1efd8a3bc01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1677688010633-138cea460828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0MHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"]
+    
+    var isButtonSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +37,32 @@ class ViewController: UIViewController {
     }
     
     func makeUI() {
+        load1.layer.cornerRadius = 8
+        load2.layer.cornerRadius = 8
+        load3.layer.cornerRadius = 8
+        load4.layer.cornerRadius = 8
+        load5.layer.cornerRadius = 8
+        loadAllImages.layer.cornerRadius = 8
     }
-    
     @IBAction func loadButtonTapped1(_ sender: UIButton) {
         let url = URL(string: imageurls[0])
-            imageView1.load(url: url!)
+        imageView1.load(url: url!)
     }
     @IBAction func loadButtonTapped2(_ sender: UIButton) {
         let url = URL(string: imageurls[1])
-            imageView2.load(url: url!)
+        imageView2.load(url: url!)
     }
     @IBAction func loadButtonTapped3(_ sender: UIButton) {
         let url = URL(string: imageurls[2])
-            imageView3.load(url: url!)
+        imageView3.load(url: url!)
     }
     @IBAction func loadButtonTapped4(_ sender: UIButton) {
         let url = URL(string: imageurls[3])
-            imageView4.load(url: url!)
+        imageView4.load(url: url!)
     }
     @IBAction func loadButtonTapped5(_ sender: UIButton) {
         let url = URL(string: imageurls[4])
-            imageView5.load(url: url!)
+        imageView5.load(url: url!)
     }
     
     @IBAction func loadAllImagesTapped(_ sender: UIButton) {
@@ -60,17 +78,17 @@ class ViewController: UIViewController {
         imageView5.load(url: url5!)
     }
 }
-    extension UIImageView {
-        func load(url: URL) {
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.image = image
-                        }
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
                     }
                 }
             }
         }
     }
+}
 

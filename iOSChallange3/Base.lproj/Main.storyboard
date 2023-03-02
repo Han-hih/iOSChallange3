@@ -210,6 +210,12 @@
                         <outlet property="imageView3" destination="mqR-1y-u54" id="Uge-m2-dXp"/>
                         <outlet property="imageView4" destination="ZIA-1z-Rvj" id="MIg-uj-kTO"/>
                         <outlet property="imageView5" destination="EpY-xH-zrZ" id="LvF-H2-4ON"/>
+                        <outlet property="load1" destination="h2k-E7-1Oe" id="vcg-uu-b8j"/>
+                        <outlet property="load2" destination="pjT-bj-UXI" id="txb-40-KYA"/>
+                        <outlet property="load3" destination="3LM-Zu-4Pb" id="6R8-ZD-0Qz"/>
+                        <outlet property="load4" destination="Aip-LB-fqp" id="Ml3-Ir-wux"/>
+                        <outlet property="load5" destination="rmT-PX-sZU" id="Vye-aO-g4p"/>
+                        <outlet property="loadAllImages" destination="9lS-3r-jsf" id="rNL-yJ-Ksr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
